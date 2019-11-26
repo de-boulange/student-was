@@ -1,28 +1,37 @@
 package org.skni.student_was.domain;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.stereotype.Component;
+
+@Component
+@PropertySource("classpath:student.properties")
 public class Student{
+
+    @Value("${student.name:Dzban}")
     private String name;
-    private int year;
+
+    @Value("${student.semester:1}")
+    private int semester;
+
     private Task task;
 
-    public Student (String name, int year, Task task){
-        this.name= name;
-        this.year=year;
+    @Autowired
+    public Student (Task task) {
         this.task=task;
     }
-
-
 
     public void setTask(String name) {
         this.name = name;
     }
 
     public int getYear() {
-        return year;
+        return semester;
     }
 
     public void setYear(int year) {
-        this.year = year;
+        this.semester = year;
     }
 
     public Task getTask() {
@@ -33,8 +42,16 @@ public class Student{
         this.task = task;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     @Override
     public String toString(){
-        return "Student " + name + " jets na " + year + " roku studiów. ta osoba ma takie zaległości: " + task;
+        return "Student " + name + " jest na " + semester + " roku studiów. ta osoba ma takie zaległości: " + task;
     }
 }
