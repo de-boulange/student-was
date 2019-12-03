@@ -1,6 +1,7 @@
 package org.skni.student_was.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
@@ -16,7 +17,7 @@ public class University {
     private Student student;
 
     @Autowired
-    public University (Student student) {
+    public University (@Qualifier(value = "tomek") Student student) {
         this.student = student;
     }
 
@@ -39,8 +40,16 @@ public class University {
         return name;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public Student getStudent() {
         return student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     @Override

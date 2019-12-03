@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+                           http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context
+                           http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:component-scan base-package="org.skni.student_was"/>
+
+    <import resource="classpath:config/university-beans.xml"/>
+
+    <context:property-placeholder location="classpath:student.properties"/>
+
+    <bean id="javaTask" class="org.skni.student_was.domain.Task" scope="prototype">
+        <property name="description" value="Zadanie 4 z programowania w Java"/>
+    </bean>
+
+    <bean id="tomek" class="org.skni.student_was.domain.Student" primary="true" scope="prototype">
+        <constructor-arg index="0" ref="javaTask"/>
+        <property name="name" value="${student.name:Tomek}"/>
+        <property name="semester" value="${student.semester:3}"/>
+    </bean>
+
+    <bean id="agata" class="org.skni.student_was.domain.Student" scope="prototype">
+        <constructor-arg index="0" ref="javaTask"/>
+        <property name="name" value="Agata"/>
+        <property name="semester" value="4"/>
+    </bean>
+
+</beans>

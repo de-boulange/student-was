@@ -3,16 +3,18 @@ package org.skni.student_was.domain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-@Component
-@PropertySource("classpath:student.properties")
+//@Component
+//@PropertySource("classpath:student.properties")
+//@Scope("prototype")
 public class Student{
 
-    @Value("${student.name:Dzban}")
+    //@Value("${student.name:Dzban}")
     private String name;
 
-    @Value("${student.semester:1}")
+    //@Value("${student.semester:1}")
     private int semester;
 
     private Task task;
@@ -32,11 +34,11 @@ public class Student{
         this.name = name;
     }
 
-    public int getYear() {
+    public int getSemester() {
         return semester;
     }
 
-    public void setYear(int year) {
+    public void setSemester(int year) {
         this.semester = year;
     }
 
@@ -58,6 +60,6 @@ public class Student{
 
     @Override
     public String toString(){
-        return "Student " + name + " jest na " + semester + " roku studiów. ta osoba ma takie zaległości: " + task;
+        return "Student " + name + " jest na " + semester + " semestrze. Ta osoba ma takie zaległości: " + task;
     }
 }

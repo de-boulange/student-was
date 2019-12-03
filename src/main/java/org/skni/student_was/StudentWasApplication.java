@@ -5,9 +5,13 @@ import org.skni.student_was.domain.Task;
 import org.skni.student_was.domain.University;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.support.GenericXmlApplicationContext;
 
 @SpringBootApplication
+//@ImportResource("classpath:config/spring-beans.xml")
 public class StudentWasApplication {
 
 	public static void main(String[] args) {
