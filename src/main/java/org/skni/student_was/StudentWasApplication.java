@@ -6,8 +6,13 @@ import org.skni.student_was.domain.University;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.context.annotation.ImportResource;
+import org.springframework.context.annotation.PropertySource;
 
 @SpringBootApplication
+//@ComponentScan(basePackages = "org.skni")
+//@ImportResource("config/spring-beans.xml")
 public class StudentWasApplication {
 
 	public static void main(String[] args) {

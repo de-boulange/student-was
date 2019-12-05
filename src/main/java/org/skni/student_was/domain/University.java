@@ -2,12 +2,14 @@ package org.skni.student_was.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Component("uni")
+@Primary
 public class University {
 
     @Value("${university.name:WAT}")
@@ -41,6 +43,14 @@ public class University {
 
     public Student getStudent() {
         return student;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     @Override

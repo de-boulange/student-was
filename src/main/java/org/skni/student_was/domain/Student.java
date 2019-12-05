@@ -28,16 +28,19 @@ public class Student{
         this.semester = semester;
     }
 
+    public Student(String tomek) {
+    }
+
     public void setTask(String name) {
         this.name = name;
     }
 
-    public int getYear() {
+    public int getSemester() {
         return semester;
     }
 
-    public void setYear(int year) {
-        this.semester = year;
+    public void setSemester(int semester) {
+        this.semester = semester;
     }
 
     public Task getTask() {
@@ -58,6 +61,6 @@ public class Student{
 
     @Override
     public String toString(){
-        return "Student " + name + " jest na " + semester + " roku studiów. ta osoba ma takie zaległości: " + task;
+        return "Student " + name + " jest na " + semester + " roku studiów. Ta osoba ma takie zaległości: " + task;
     }
 }
