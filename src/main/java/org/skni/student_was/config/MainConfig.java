@@ -10,15 +10,4 @@ import org.springframework.context.annotation.Primary;
 @Configuration
 public class MainConfig {
 
-    @Autowired
-    Task task;
-
-    @Bean
-    public Student student() {
-        Student student = new Student (task);
-        student.setName("Tomek");
-        student.setSemester(3);
-
-        return student;
-    }
 }
