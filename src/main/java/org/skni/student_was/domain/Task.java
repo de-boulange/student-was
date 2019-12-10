@@ -1,18 +1,11 @@
 package org.skni.student_was.domain;
 
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.context.annotation.PropertySource;
-import org.springframework.stereotype.Component;
-
-@Component
-@PropertySource("classpath:task.properties")
 public class Task {
 
-    @Value("${task.description}")
     private String description;
 
-    public Task () {
-
+    public Task (String description) {
+        this.description = description;
     }
 
     public String getDescription() {
@@ -25,6 +18,8 @@ public class Task {
 
     @Override
     public String toString (){
-        return description;
+        return "Task[description="
+                + description
+                + "]";
     }
 }

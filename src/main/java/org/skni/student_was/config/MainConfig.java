@@ -1,24 +1,26 @@
 package org.skni.student_was.config;
 
-import org.skni.student_was.domain.Student;
-import org.skni.student_was.domain.Task;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.skni.student_was.domain.repositories.DBStudentRepository;
+import org.skni.student_was.domain.repositories.InMemoryStudentRepository;
+import org.skni.student_was.domain.repositories.StudentRepository;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
+import org.springframework.context.annotation.Profile;
 
 @Configuration
 public class MainConfig {
 
-    @Autowired
-    Task task;
+    @Bean
+    @Profile("dev")
+    StudentRepository inMemoryRepository () {
+        StudentRepository repository = new InMemoryStudentRepository();
+        return repository;
+    }
 
     @Bean
-    public Student student() {
-        Student student = new Student (task);
-        student.setName("Tomek");
-        student.setSemester(3);
-
-        return student;
+    @Profile("prod")
+    StudentRepository dbRepository () {
+        StudentRepository repository = new DBStudentRepository();
+        return repository;
     }
 }
