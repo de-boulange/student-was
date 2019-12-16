@@ -26,5 +26,5 @@ public interface StudentRepository {
      Collection<Student> getAllStudent();
 
     public void build ();
-    
+
 }

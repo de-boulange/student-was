@@ -1,5 +1,6 @@
 package org.skni.student_was;
 
+import org.skni.student_was.controller.HelloWorldController;
 import org.skni.student_was.domain.Student;
 import org.skni.student_was.domain.repository.StudentRepository;
 import org.skni.student_was.domain.repository.TaskRepository;
