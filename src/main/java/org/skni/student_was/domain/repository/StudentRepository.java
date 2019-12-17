@@ -19,12 +19,14 @@ public interface StudentRepository {
 
      void addStudent (String name, int semester);
 
-     void deleteStudent (String name);
+     void addStudent (Student student);
 
-     Student getStudent (String name);
+     void deleteStudent (int id);
+
+     Student getStudent (int id);
 
      Collection<Student> getAllStudent();
 
-    public void build ();
+     public void build ();
 
 }

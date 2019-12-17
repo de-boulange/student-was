@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Imię studenta</td>
+            <td>Semestr</td>
+            <td>Zadanie</td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each=" student : ${students}">
+            <td th:text="${student.name}"></td>
+            <td th:text="${student.semester}"></td>
+            <td>
+                <span th:if="${student.task==null}">Brak aktualnego zadania<a th:href="${'/assignTask?studentId='+student.id}">Przypisz zadanie</a></span>
+                <span th:if="${student.task!=null}" th:text="${student.task.description}"/>
+            </td>
+            <td><a th:href="${'/student?id='+student.id}">Podglad</a></td>
+            <td><a th:href="${'/student/delete/'+student.id}">Usun</a></td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="row">
+        <a href="/newstudent">Dodaj studenta</a>
+    </div>
+</div>
+</body>
+</html>

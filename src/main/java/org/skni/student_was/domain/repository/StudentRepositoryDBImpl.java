@@ -3,7 +3,10 @@ package org.skni.student_was.domain.repository;
 import org.skni.student_was.domain.Student;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
 import java.nio.channels.NotYetConnectedException;
 import java.util.Collection;
 
@@ -11,28 +14,41 @@ import java.util.Collection;
 @Profile("prod")
 public class StudentRepositoryDBImpl implements StudentRepository {
 
+    @PersistenceContext
+    private EntityManager em;
+
     @Override
+    @Transactional
     public void addStudent(String name, int semester) {
-        throw new NotYetConnectedException();
+        Student student = new Student(name, semester);
+
+        em.persist(student);
     }
 
     @Override
-    public void deleteStudent(String name) {
-        throw new NotYetConnectedException();
+    @Transactional
+    public void addStudent(Student student) {
+        em.persist(student);
     }
 
     @Override
-    public Student getStudent(String name) {
-        throw new NotYetConnectedException();
+    @Transactional
+    public void deleteStudent(int id) {
+        em.remove(id);
+    }
+
+    @Override
+    public Student getStudent(int id) {
+        return em.find(Student.class, id);
     }
 
     @Override
     public Collection<Student> getAllStudent() {
-        throw new NotYetConnectedException();
+        return  em.createQuery("from Student", Student.class).getResultList();
     }
 
     @Override
     public void build() {
-        throw new NotYetConnectedException();
+
     }
 }
