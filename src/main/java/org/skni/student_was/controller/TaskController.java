@@ -19,7 +19,7 @@ public class TaskController {
     TaskService taskService;
 
     @RequestMapping("/assignTask")
-    public String assignQuest(@RequestParam("studentId") int id, Model model) {
+    public String assignTask(@RequestParam("studentId") int id, Model model) {
         Student student = studentService.getStudent(id);
         taskService.assignTask(id);
         model.addAttribute("student", student);
