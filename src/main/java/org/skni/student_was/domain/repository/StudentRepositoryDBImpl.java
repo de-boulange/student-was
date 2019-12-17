@@ -1,11 +1,13 @@
 package org.skni.student_was.domain.repository;
 
 import org.skni.student_was.domain.Student;
+import org.skni.student_was.domain.Task;
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
+import javax.persistence.OneToOne;
 import javax.persistence.PersistenceContext;
 import java.nio.channels.NotYetConnectedException;
 import java.util.Collection;
@@ -35,6 +37,12 @@ public class StudentRepositoryDBImpl implements StudentRepository {
     @Transactional
     public void deleteStudent(int id) {
         em.remove(id);
+    }
+
+    @Override
+    @Transactional
+    public void updateStudent(int id, Student student) {
+        em.merge(student);
     }
 
     @Override

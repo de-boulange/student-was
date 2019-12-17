@@ -22,8 +22,9 @@ public class TaskService {
 
     final static Random rand = new Random();
 
-    public void assignTask (int id) {
-        Student student = studentRepository.getStudent(id);
+    @Transactional
+    public void assignTask (int studentId) {
+        Student student = studentRepository.getStudent(studentId);
         List<Task> taskList = taskRepository.getAllTasks();
 
 //        if (student != null) {
@@ -32,6 +33,7 @@ public class TaskService {
 
         if (student != null) {
             student.setTask(taskList.get(rand.nextInt(taskList.size())));
+            studentRepository.updateStudent(student.getId(), student);
         }
     }
 }

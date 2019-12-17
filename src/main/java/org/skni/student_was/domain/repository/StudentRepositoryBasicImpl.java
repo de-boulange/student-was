@@ -51,6 +51,15 @@ public class StudentRepositoryBasicImpl implements StudentRepository {
         return students.values();
     }
 
+    @Override
+    public void updateStudent(int id, Student student) {
+        try {
+            throw new Exception("Not implemented");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     @PostConstruct
     public void build () {
         addStudent("Tomek", 2);
