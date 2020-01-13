@@ -21,8 +21,8 @@ public class TaskService {
 
     final static Random rand = new Random();
 
-    public void assignTask (String name) {
-        Student student = studentRepository.getStudent(name);
+    public void assignTask (Integer id) {
+        Student student = studentRepository.getStudent(id);
         List<Task> taskList = taskRepository.getAllTasks();
 
         if (student != null) {

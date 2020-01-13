@@ -1,7 +1,5 @@
 package org.skni.student_was;
 
-import org.skni.student_was.controller.HelloWorldController;
-import org.skni.student_was.domain.Student;
 import org.skni.student_was.domain.repository.StudentRepository;
 import org.skni.student_was.domain.repository.TaskRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +17,5 @@ public class Starter implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        System.out.println(studentRepository);
     }
 }

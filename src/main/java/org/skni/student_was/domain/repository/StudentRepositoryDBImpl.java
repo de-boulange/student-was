@@ -12,17 +12,17 @@ import java.util.Collection;
 public class StudentRepositoryDBImpl implements StudentRepository {
 
     @Override
-    public void addStudent(String name, int semester) {
+    public void addStudent(Student student) {
         throw new NotYetConnectedException();
     }
 
     @Override
-    public void deleteStudent(String name) {
+    public void deleteStudent(Integer id) {
         throw new NotYetConnectedException();
     }
 
     @Override
-    public Student getStudent(String name) {
+    public Student getStudent(Integer id) {
         throw new NotYetConnectedException();
     }
 

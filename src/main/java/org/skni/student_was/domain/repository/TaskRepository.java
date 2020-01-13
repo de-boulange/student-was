@@ -27,7 +27,7 @@ public class TaskRepository {
     }
 
     //@Scheduled(fixedDelayString = "${random.task.delay}")
-    @Scheduled(fixedDelay = 5000)
+    // @Scheduled(fixedDelay = 5000)
     public void createRandomTask() {
         List<String> descriptionList = new ArrayList<>();
         descriptionList.add("Zadanie z algebry liniowej");
@@ -35,10 +35,9 @@ public class TaskRepository {
         descriptionList.add("Napisanie eseju nt. Javy");
         descriptionList.add("Zadanie z mikroekonomii");
 
-        Random rand = new Random();
-        String description = descriptionList.get(rand.nextInt(descriptionList.size()));
-        System.out.println("Dodaję następujące zadanie: " + description);
-        addTask(description);
+        for (String desc : descriptionList) {
+            addTask(desc);
+        }
     }
 
     @Override

@@ -6,7 +6,9 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
-public class Student{
+public class Student {
+
+    private Integer id;
 
     private String name;
 
@@ -18,6 +20,12 @@ public class Student{
         this.name = name;
         this.semester = semester;
     }
+
+    public Student () { }
+
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
 
     public String getName() {
         return name;

@@ -1,0 +1,35 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Student List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+        <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+        <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+        <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+    <table class="table">
+        <thead>
+        <tr>
+            <td>Imię:</td>
+            <td>Semestr:</td>
+        </tr>
+        </thead>
+        <thead>
+        <tr th:each="student : ${students}">
+            <td th:text="${student.name}">
+            <td th:text="${student.semester}">
+            <td><a th:href="${'/student?id='+ student.id}">Podgląd</a>
+            <td><a th:href="${'/student/delete/'+student.id}">Usuń</a></td>
+        </tr>
+        </thead>
+    </table>
+    <div class="row">
+        <a href="/newstudent">Dodaj nowego studenta</a>
+    </div>
+</div>
+
+</body>
+</html>

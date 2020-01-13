@@ -17,11 +17,11 @@ import java.util.Map;
 @Repository
 public interface StudentRepository {
 
-     void addStudent (String name, int semester);
+     void addStudent (Student student);
 
-     void deleteStudent (String name);
+     void deleteStudent (Integer id);
 
-     Student getStudent (String name);
+     Student getStudent (Integer id);
 
      Collection<Student> getAllStudent();
 
